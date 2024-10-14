@@ -65,7 +65,7 @@
               v-model="formData.password"
               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-400 focus:border-blue-500 transition duration-200 ease-in-out"
               id="password"
-              type="password"
+              type="text"
               placeholder="Enter password"
               required
             />
@@ -110,6 +110,8 @@
           <div class="w-2/3">
             <input
               v-model="formData.phoneNumber"
+              @input="filterDigits"
+              @keypress="allowOnlyDigits"
               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-400 focus:border-blue-500 transition duration-200 ease-in-out"
               id="phone"
               type="tel"
@@ -161,6 +163,19 @@ const props = defineProps({
     required: true
   }
 });
+
+const allowOnlyDigits = (event) => {
+  const char = String.fromCharCode(event.which);
+  if (!/[0-9]/.test(char)) {
+    event.preventDefault(); // Prevent the default action if the character is not a digit
+  }
+};
+
+const filterDigits = () => {
+  // Use regex to remove any non-digit characters from phoneNumber
+  formData.phoneNumber = formData.phoneNumber.replace(/\D/g, '');
+};
+
 
 const validationErrors = ref({
   name: '',

@@ -97,9 +97,12 @@
             <div class="w-3/4">
               <input
                 v-model="formData.phoneNumber"
+                @keypress="allowOnlyDigits"
+                @input="filterDigits"
                 id="phoneNumber"
                 type="tel"
                 class="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                required
               />
               <div v-if="validationErrors.phoneNumber" class="text-red-500 text-sm mt-1">
                 {{ validationErrors.phoneNumber }}
@@ -152,6 +155,19 @@ const props = defineProps({
     default: () => {}  // Default empty function to prevent errors
   }
 });
+
+const allowOnlyDigits = (event) => {
+  const char = String.fromCharCode(event.which);
+  if (!/[0-9]/.test(char)) {
+    event.preventDefault(); // Prevent the default action if the character is not a digit
+  }
+};
+
+const filterDigits = () => {
+  // Use regex to remove any non-digit characters from phoneNumber
+  formData.value.phoneNumber = formData.value.phoneNumber.replace(/\D/g, '');
+};
+
 
 const showModal = ref(false);
 const formData = ref({
