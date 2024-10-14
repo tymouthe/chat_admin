@@ -80,17 +80,20 @@
       <div class="flex flex-col">
         <div class="flex flex-row items-center">
           <label class="block text-sm font-medium text-gray-700 w-1/3 text-right pr-4" for="lotteryType">
-            Lottery Type <span class="text-red-500">*</span>
+            Lottery <span class="text-red-500">*</span>
           </label>
           <div class="w-2/3">
-            <input
-              v-model="formData.lotteryType"
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-400 focus:border-blue-500 transition duration-200 ease-in-out"
-              id="lotteryType"
-              type="text"
-              placeholder="Enter lottery type"
-              required
-            />
+            <select
+                v-model="formData.lotteryType"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-400 focus:border-blue-500 transition duration-200 ease-in-out"
+                id="lotteryType"
+                required
+              >
+                <option disabled value="">Please select a Lottery</option>
+                <option value="VN ឆ្នោតវៀតណាម">VN ឆ្នោតវៀតណាម</option>
+                <option value="MH មហាឈ្នះ">MH មហាឈ្នះ</option>
+                <option value="TC ទិញឈ្នះ">TC ទិញឈ្នះ</option>
+              </select>
             <div v-if="validationErrors.lotteryType" class="text-red-500 text-sm mt-1">
               {{ validationErrors.lotteryType }}
             </div>

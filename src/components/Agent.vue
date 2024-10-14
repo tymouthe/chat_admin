@@ -46,8 +46,8 @@
             <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Name</th>
             <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Username</th>
             <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Password</th>
-            <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Lottery Type</th>
-            <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Phone Number</th>
+            <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Lottery</th>
+            <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-gray-600">PhoneNumber</th>
             <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Actions</th>
           </tr>
         </thead>

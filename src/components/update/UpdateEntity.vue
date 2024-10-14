@@ -72,14 +72,19 @@
 
           <!-- Form field: Lottery Type -->
           <div class="flex items-center space-x-2">
-            <label for="lotteryType" class="w-1/4 text-gray-600 font-medium text-right">Lottery Type:</label>
+            <label for="lotteryType" class="w-1/4 text-gray-600 font-medium text-right">Lottery:</label>
             <div class="w-3/4">
-              <input
+              <select
                 v-model="formData.lotteryType"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-400 focus:border-blue-500 transition duration-200 ease-in-out"
                 id="lotteryType"
-                type="text"
-                class="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-              />
+                required
+              >
+                <option disabled value="">Please select a Lottery</option>
+                <option value="VN ឆ្នោតវៀតណាម">VN ឆ្នោតវៀតណាម</option>
+                <option value="MH មហាឈ្នះ">MH មហាឈ្នះ</option>
+                <option value="TC ទិញឈ្នះ">TC ទិញឈ្នះ</option>
+              </select>
               <div v-if="validationErrors.lotteryType" class="text-red-500 text-sm mt-1">
                 {{ validationErrors.lotteryType }}
               </div>
